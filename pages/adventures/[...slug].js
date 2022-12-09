@@ -122,6 +122,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params, 'slug')
   const slug = params.slug[0];
   const res = await aemHeadlessClient.getAdventuresBySlug(slug);
   const adventure = res?.data?.adventureList?.items[0];

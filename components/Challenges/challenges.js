@@ -14,7 +14,7 @@ const Challenges = ({ challengesList }) => {
                         <li key={`${index}-'index`} className={styles.challenges}>
                             <img
                                 className="challenges-item-image"
-                                src={challenge._path}
+                                src={challenge.challengeImagePath}
                                 alt=""
                             />
                             <Link href={`/challenges/${challenge.challengePath?._path.replace('/content/staying-sharp/en/home/challenges/', '')}`} >

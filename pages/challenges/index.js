@@ -2,7 +2,7 @@ import aemHeadlessClient from '../../lib/aem-headless-client';
 import Challenges from '../../components/Challenges/challenges';
 
 export default function ChallengeOverview({ challenges }) {
-    console.log(challenges);
+  console.log(challenges);
     return (
         <Challenges challengesList={challenges}/>
     )

@@ -7,7 +7,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 import React, {Component} from 'react';
-import loadingIcon from '../images/icon-loading.svg';
+import loadingIcon from './../public/images/icon-loading.svg';
 
 class Loading extends Component {
 

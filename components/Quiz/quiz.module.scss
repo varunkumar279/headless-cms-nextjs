@@ -1,0 +1,25 @@
+
+.question-title{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.question-list {
+    list-style: none;
+    font-size: 18px;;
+}
+
+.question-answer{
+    background: #ccc;
+    padding: 15px;
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+.not-active {
+    display: none
+}
+
+.active {
+    display: block;
+}

@@ -2,6 +2,7 @@ import aemHeadlessClient from '../../../lib/aem-headless-client';
 import ChallengesStep from '../../../components/ChallengesStep/challengesStep';
 
 export default function ChallengesLanding({ challengeSteps }) {
+    console.log(challengeSteps)
     return (
         <ChallengesStep challengeSteps={challengeSteps}/>
     )

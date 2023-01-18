@@ -1,6 +1,5 @@
 {
   "files": {
-    "/_error.js": "static/chunks//_error.js",
     "/static/media/icon-loading.svg": "/static/media/icon-loading.a0fcf6e0.svg",
     "amp.js": "static/chunks/amp.js",
     "build-manifest.json": "build-manifest.json",
@@ -19,7 +18,6 @@
     "webpack.js": "static/chunks/webpack.js"
   },
   "entrypoints": [
-    "static/chunks//_error.js",
     "static/chunks/amp.js",
     "static/chunks/main.js",
     "static/chunks/pages/_app.js",

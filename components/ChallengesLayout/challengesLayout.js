@@ -25,6 +25,7 @@ export default function ChallengesLayout({ challengeStepContent, challengeName, 
             return 0;
         } else {
             let counter = -1;
+            debugger;
             challengeStepContent?.subContentTypePages?.forEach((item, i) => {
                 const pagePath = item._path.split('challenges-mobile-app')[1];
                 if (router.asPath.split('challenges')[1] == pagePath) {
@@ -36,20 +37,20 @@ export default function ChallengesLayout({ challengeStepContent, challengeName, 
     };
 
     const getChallengeContentProps = () => {
-        debugger
+        debugger;
         const activePathIndex = getActivePathIndex(challengeStepContent);
-        console.log(activePathIndex, challengeStepContent);
-        return { path: challengeStepContent.subContentTypePages[activePathIndex]._path,  challengePath: `challenges/${challengeName}` }
+        console.log(activePathIndex, challengeStepContent, 'testest');
+        // return { path: challengeStepContent.subContentTypePages[activePathIndex]._path,  challengePath: `challenges/${challengeName}` }
     }
 
     const handleNextStep = () => {
-        const stepPathsList = challengeStepContent.subContentTypePages;
+        const stepPathsList = challengeStepContent;
         const activePathIndex = getActivePathIndex(stepPathsList);
         let nextPath = `challenges/${challengeName}`;
-        if (activePathIndex !== null && stepPathsList[activePathIndex+1]) {
-            nextPath = stepPathsList[activePathIndex+1]._path.split('challenges-mobile-app')[1];
+        if (activePathIndex !== null && stepPathsList.subContentTypePages[activePathIndex+1]) {
+            nextPath = stepPathsList.subContentTypePages[activePathIndex+1]._path.split('challenges-mobile-app')[1];
         } else if (activePathIndex == null) {
-            nextPath = stepPathsList[0]._path.split('challenges-mobile-app')[1];
+            nextPath = stepPathsList.subContentTypePages[0]._path.split('challenges-mobile-app')[1];
         } else {
             nextPath = `/${challengeName}`;
         }
@@ -59,13 +60,11 @@ export default function ChallengesLayout({ challengeStepContent, challengeName, 
     }
 
     const handleBackStep = () => {
-        const stepPathsList = challengeStepContent.subContentTypePages;
+        const stepPathsList = challengeStepContent;
         const activePathIndex = getActivePathIndex(stepPathsList);
         let prevPath = `challenges/${challengeName}`;
-        if (activePathIndex !== null && stepPathsList[activePathIndex-1]) {
-            prevPath = stepPathsList[activePathIndex-1]._path.split('challenges-mobile-app')[1];
-        } else if (activePathIndex == null) {
-            prevPath = stepPathsList[0]._path.split('challenges-mobile-app')[1];
+        if (activePathIndex !== null && stepPathsList.subContentTypePages[activePathIndex-1]) {
+            prevPath = stepPathsList.subContentTypePages[activePathIndex-1]._path.split('challenges-mobile-app')[1];
         } else {
             prevPath = `/${challengeName}`;
         }
@@ -77,7 +76,7 @@ export default function ChallengesLayout({ challengeStepContent, challengeName, 
     return (
         <main className={styles.main}>
             <SideBar data={sideBarProps}/>
-            <ChallengeContent data={getChallengeContentProps()} />
+            {/* <ChallengeContent data={getChallengeContentProps()} /> */}
             <Footer onNext={handleNextStep} onBack={handleBackStep}/>
         </main>
     )

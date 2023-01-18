@@ -3,14 +3,6 @@ import ChallengesLayout from '../../../../components/ChallengesLayout/challenges
 
 export default function Steps({ challengeStepContent, challengeName, params }) {
     console.log('testing');
-
-    const challengeName = params.challengeLanding;
-    console.log(params, 'params');
-    const step = params.steps;
-    const challengesList = 'StayingSharpContentFragments/challenges';
-    const res = await aemHeadlessClient.getChallengesStepContent(challengeName, step, challengesList);
-    const challengeStepContent = res?.data?.stepByPath?.item || null;
-    console.log(res, challengeStepContent, 'challengeStepContent');
    
     return (
         <ChallengesLayout challengeStepContent={challengeStepContent} challengeName={challengeName} params={params}/>
@@ -18,34 +10,34 @@ export default function Steps({ challengeStepContent, challengeName, params }) {
         )
 }
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
-//     return {
-//         paths: [],
-//         fallback: 'blocking',
-//     };
-// }
+    return {
+        paths: [],
+        fallback: 'blocking',
+    };
+}
 
-// export async function getStaticProps({ params }) {
-//     const challengeName = params.challengeLanding;
-//     console.log(params, 'params');
-//     const step = params.steps;
-//     const challengesList = 'StayingSharpContentFragments/challenges';
-//     const res = await aemHeadlessClient.getChallengesStepContent(challengeName, step, challengesList);
-//     const challengeStepContent = res?.data?.stepByPath?.item || null;
-//     console.log(res, challengeStepContent, 'challengeStepContent');
+export async function getStaticProps({ params }) {
+    const challengeName = params.challengeLanding;
+    console.log(params, 'params');
+    const step = params.steps;
+    const challengesList = 'StayingSharpContentFragments/challenges';
+    const res = await aemHeadlessClient.getChallengesStepContent(challengeName, step, challengesList);
+    const challengeStepContent = res?.data?.stepByPath?.item || null;
+    console.log(res, challengeStepContent, 'challengeStepContent');
 
-//     // if (!challengeStepContent) {
-//     //     return {
-//     //     notFound: true,
-//     //     }
-//     // } 
+    if (!challengeStepContent) {
+        return {
+        notFound: true,
+        }
+    } 
 
-//     return {
-//         props: {
-//             challengeStepContent,
-//             challengeName,
-//             params
-//         }
-//     };
-// }
+    return {
+        props: {
+            challengeStepContent,
+            challengeName,
+            params
+        }
+    };
+}
